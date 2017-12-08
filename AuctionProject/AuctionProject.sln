@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.Service", "Auction.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.Models", "Auction.Models\Auction.Models.csproj", "{90F3B3DB-23BC-46E1-A479-853A6C67510C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction.Model.API", "Auction.Model.API\Auction.Model.API.csproj", "{CC45425E-B9EC-4AAA-9A61-7818F0DCFB0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.Model.API", "Auction.Model.API\Auction.Model.API.csproj", "{CC45425E-B9EC-4AAA-9A61-7818F0DCFB0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction.Functionality", "Auction.Functionality\Auction.Functionality.csproj", "{F4F2A9B5-E43F-4D0A-8AC6-47D2315EBDE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{CC45425E-B9EC-4AAA-9A61-7818F0DCFB0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC45425E-B9EC-4AAA-9A61-7818F0DCFB0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC45425E-B9EC-4AAA-9A61-7818F0DCFB0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4F2A9B5-E43F-4D0A-8AC6-47D2315EBDE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F2A9B5-E43F-4D0A-8AC6-47D2315EBDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F2A9B5-E43F-4D0A-8AC6-47D2315EBDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F2A9B5-E43F-4D0A-8AC6-47D2315EBDE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

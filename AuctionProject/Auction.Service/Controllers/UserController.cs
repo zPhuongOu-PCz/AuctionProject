@@ -26,17 +26,17 @@ namespace Auction.Service.Controllers
             return true;
         }
 
-        //[HttpGet]
-        //public IEnumerable<User> Get()
-        //{
+        [HttpGet]
+        public IEnumerable<User> Get()
+        {
 
-        //}
+        }
 
-        //[HttpGet("{id}")]
-        //public IEnumerable<User> Get(Guid id)
-        //{
+        [HttpGet("{id}")]
+        public IEnumerable<User> Get(Guid id)
+        {
 
-        //}
+        }
 
     }
 }

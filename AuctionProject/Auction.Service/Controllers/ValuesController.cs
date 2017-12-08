@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Auction.Service.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
