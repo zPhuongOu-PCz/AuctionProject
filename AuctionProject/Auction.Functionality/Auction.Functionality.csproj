@@ -8,4 +8,16 @@
     <Folder Include="Basic\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Auction.EF\Auction.EF.csproj" />
+    <ProjectReference Include="..\Auction.Model.API\Auction.Model.API.csproj" />
+    <ProjectReference Include="..\Auction.Models\Auction.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.abstractions\2.0.1\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

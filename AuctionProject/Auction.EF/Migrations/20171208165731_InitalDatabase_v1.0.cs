@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace Auction.Service.Migrations
+namespace Auction.EF.Migrations
 {
-    public partial class InitialDatabase : Migration
+    public partial class InitalDatabase_v10 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +13,8 @@ namespace Auction.Service.Migrations
                 name: "PdbRole",
                 columns: table => new
                 {
-                    IDrole = table.Column<Guid>(nullable: false),
+                    IDrole = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     namerole = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -25,7 +27,7 @@ namespace Auction.Service.Migrations
                 columns: table => new
                 {
                     IDuser = table.Column<Guid>(nullable: false),
-                    IDrole = table.Column<Guid>(nullable: false),
+                    IDrole = table.Column<int>(nullable: false),
                     address = table.Column<string>(maxLength: 100, nullable: true),
                     age = table.Column<int>(nullable: true),
                     countlogin = table.Column<int>(nullable: true),
@@ -34,7 +36,7 @@ namespace Auction.Service.Migrations
                     failedlogin = table.Column<int>(nullable: true),
                     lastlogin = table.Column<DateTime>(nullable: true),
                     password = table.Column<string>(maxLength: 50, nullable: false),
-                    phone = table.Column<int>(nullable: true),
+                    phone = table.Column<string>(maxLength: 15, nullable: true),
                     username = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>

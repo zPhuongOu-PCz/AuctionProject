@@ -22,7 +22,8 @@ namespace Auction.Models
         public int? age { get; set; }
         [StringLength(100)]
         public string address { get; set; }
-        public int? phone { get; set; }
+        [StringLength(15)]
+        public string phone { get; set; }
         [StringLength(100)]
         public string email { get; set; }
         public int? countlogin { get; set; }

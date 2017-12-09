@@ -4,19 +4,23 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Auction.Models;
-using Auction.Service.Database;
+using Auction.EF.Database;
+using Auction.Model.API.User;
+using Auction.Functionality.Function;
 
 namespace Auction.Service.Controllers
 {
     [Produces("application/json")]
-    [Route("api/User")]
+    [Route("api/User")]    
     public class UserController : Controller
     {
         private readonly AuctionDBContext _context;
+        private readonly FunctionUserInfomation function;
 
         public UserController(AuctionDBContext context)
         {
             this._context = context;
+            function = new FunctionUserInfomation(this._context);
         }
 
         private bool CheckLogin(string _us, string _ps)
@@ -27,16 +31,15 @@ namespace Auction.Service.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<User> Get()
+        public IEnumerable<UserInfomation> Get()
         {
-
+            return function.Get();
         }
 
-        [HttpGet("{id}")]
-        public IEnumerable<User> Get(Guid id)
+        [HttpGet("{_us}")]
+        public UserInfomation Get(string _us)
         {
-
+            return function.Get(_us);
         }
-
     }
 }

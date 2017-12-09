@@ -6,8 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Auction.Service.Database;
 using Microsoft.EntityFrameworkCore;
+using Auction.EF.Database;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Auction.Service
 {
@@ -18,15 +23,20 @@ namespace Auction.Service
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; set; } // Adding set; default : { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             var connection = @"Data Source=.\sqlexpress;Initial Catalog=AuctionProject;Integrated Security=True";
-            services.AddDbContext<AuctionDBContext>(options => options.UseSqlServer(connection));            
+            //services.AddDbContext<AuctionDBContext>(options => options.UseSqlServer(connection));            
+            services.AddEntityFrameworkSqlServer()
+           .AddDbContext<AuctionDBContext>(options =>
+              options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
