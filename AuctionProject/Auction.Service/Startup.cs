@@ -33,7 +33,6 @@ namespace Auction.Service
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             var connection = @"Data Source=.\sqlexpress;Initial Catalog=AuctionProject;Integrated Security=True";
-            //services.AddDbContext<AuctionDBContext>(options => options.UseSqlServer(connection));            
             services.AddEntityFrameworkSqlServer()
            .AddDbContext<AuctionDBContext>(options =>
               options.UseSqlServer(connection));
