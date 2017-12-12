@@ -23,31 +23,45 @@ namespace Auction.Functionality.Function
 
         public List<UserInfomation> Get()
         {
-            UserInfomation result = new UserInfomation();
-            List<UserInfomation> listresult = new List<UserInfomation>();
-            List<User> listuser = this._context.PdbUser.ToList();
-            for (int i = 0; i < listuser.Count - 1; i++)
+            try
             {
-                result.address = listuser[i].address;
-                result.age = listuser[i].age;
-                result.displayname = listuser[i].displayname;
-                result.email = listuser[i].email;
-                result.phone = listuser[i].phone;
-                listresult.Add(result);
+                UserInfomation result = new UserInfomation();
+                List<UserInfomation> listresult = new List<UserInfomation>();
+                List<User> listuser = this._context.PdbUser.ToList();
+                for (int i = 0; i < listuser.Count - 1; i++)
+                {
+                    result.address = listuser[i].address;
+                    result.age = listuser[i].age;
+                    result.displayname = listuser[i].displayname;
+                    result.email = listuser[i].email;
+                    result.phone = listuser[i].phone;
+                    listresult.Add(result);
+                }
+                return listresult;
             }
-            return listresult;
+            catch 
+            {
+                return null;
+            }            
         }
 
         public UserInfomation Get(string _us)
         {
-            User us = this._context.PdbUser.Where(item => item.username == _us).FirstOrDefault();
-            UserInfomation userInfomation = new UserInfomation();
-            userInfomation.address = us.address;
-            userInfomation.age = us.age;
-            userInfomation.displayname = us.displayname;
-            userInfomation.email = us.email;
-            userInfomation.phone = us.phone;
-            return userInfomation;
+            try
+            {
+                User us = this._context.PdbUser.Where(item => item.username == _us).FirstOrDefault();
+                UserInfomation userInfomation = new UserInfomation();
+                userInfomation.address = us.address;
+                userInfomation.age = us.age;
+                userInfomation.displayname = us.displayname;
+                userInfomation.email = us.email;
+                userInfomation.phone = us.phone;
+                return userInfomation;
+            }
+            catch 
+            {
+                return null;
+            }            
         }
 
         public bool Post()
