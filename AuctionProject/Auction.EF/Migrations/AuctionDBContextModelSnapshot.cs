@@ -20,25 +20,12 @@ namespace Auction.EF.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Auction.Models.Role", b =>
-                {
-                    b.Property<int>("IDrole")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("namerole")
-                        .IsRequired();
-
-                    b.HasKey("IDrole");
-
-                    b.ToTable("PdbRole");
-                });
-
             modelBuilder.Entity("Auction.Models.User", b =>
                 {
                     b.Property<Guid>("IDuser")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("IDrole");
+                    b.Property<DateTime>("CreatedDate");
 
                     b.Property<string>("address")
                         .HasMaxLength(100);

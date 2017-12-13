@@ -33,10 +33,9 @@ namespace Auction.Test
         public void Insert()
         {
             bool check = false;
-            Assert.AreNotEqual(check, this.function.Insert(new User
+            Assert.AreNotEqual(check, this.function.Post(new User
             {
                 IDuser = Guid.NewGuid(),
-                IDrole = 1,
                 address = "Address",
                 age = 21,
                 countlogin = 0,
@@ -46,7 +45,8 @@ namespace Auction.Test
                 lastlogin = DateTime.Now,
                 password = "123",
                 username = "admin",
-                phone = "0123456789"
+                phone = "0123456789",
+                CreatedDate = DateTime.Now              
             }));
         }
 

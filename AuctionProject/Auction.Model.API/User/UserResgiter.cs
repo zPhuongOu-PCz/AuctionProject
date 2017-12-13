@@ -1,20 +1,13 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Auction.Models {
-    public class User {
-
-        [Key]
-        public Guid IDuser { get; set; }
-
+namespace Auction.Model.API.User {
+    public class UserResgiter {
         [Required]
-
         [StringLength (50)]
         public string username { get; set; }
 
         [Required]
-
         [StringLength (50)]
         public string password { get; set; }
 
@@ -32,11 +25,5 @@ namespace Auction.Models {
 
         [StringLength (100)]
         public string email { get; set; }
-        public int? countlogin { get; set; }
-        public int? failedlogin { get; set; }
-        public DateTime? lastlogin { get; set; }
-
-        [Required]
-        public DateTime CreatedDate { get; set; }
     }
 }

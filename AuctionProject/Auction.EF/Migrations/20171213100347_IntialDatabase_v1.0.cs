@@ -1,33 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
 namespace Auction.EF.Migrations
 {
-    public partial class InitalDatabase_v10 : Migration
+    public partial class IntialDatabase_v10 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "PdbRole",
-                columns: table => new
-                {
-                    IDrole = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    namerole = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PdbRole", x => x.IDrole);
-                });
-
             migrationBuilder.CreateTable(
                 name: "PdbUser",
                 columns: table => new
                 {
                     IDuser = table.Column<Guid>(nullable: false),
-                    IDrole = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
                     address = table.Column<string>(maxLength: 100, nullable: true),
                     age = table.Column<int>(nullable: true),
                     countlogin = table.Column<int>(nullable: true),
@@ -47,9 +33,6 @@ namespace Auction.EF.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "PdbRole");
-
             migrationBuilder.DropTable(
                 name: "PdbUser");
         }
