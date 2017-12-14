@@ -31,11 +31,11 @@ namespace Auction.Service.Controllers {
             this.errorResquest = new ErrorResquest ();
         }
 
-        [HttpGet]
-        public IActionResult Get () {
-            IEnumerable<UserInfomation> list = userfunction.Get ();
-            return Ok (list);
-        }
+        // [HttpGet]
+        // public IActionResult Get () {
+        //     IEnumerable<UserInfomation> list = userfunction.Get ();
+        //     return Ok (list);
+        // }
 
         [HttpGet ("{_us}")]
         public IActionResult Get (string _us) {
@@ -47,7 +47,6 @@ namespace Auction.Service.Controllers {
         }
 
         [HttpPost]
-
         [Route ("login")]
         public IActionResult Login ([FromBody] UserLogin item) {
             if (item == null) {
@@ -62,13 +61,12 @@ namespace Auction.Service.Controllers {
         }
 
         [HttpPost]
-
         [Route ("register")]
         public IActionResult Register ([FromBody] UserResgiter item) {
             if (item == null) {
                 return NotFound ();
             } else {
-                if (this.userfunction.Post (item)) {
+                if (this.userfunction.Post (item) == 1) {
                     return Ok ();
                 } else {
                     return NotFound ();

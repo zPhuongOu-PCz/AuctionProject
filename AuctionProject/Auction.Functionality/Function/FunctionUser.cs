@@ -143,5 +143,15 @@ namespace Auction.Functionality.Function {
         public User FindUser (string _us, string _pa) {
             return this._context.PdbUser.Where (item => item.username == _us && item.password == _pa).FirstOrDefault ();
         }
+
+        /// <summary>
+        /// The method for Finding User with username and password but return boolean
+        /// </summary>
+        /// <param name="_us">Username of User</param>
+        /// <param name="_pa">Password of User</param>
+        /// <returns>return true for one user found and false for not found with boolean</returns>
+        public bool ExistsUser (string _us, string _pa) {
+            return (this._context.PdbUser.Where (item => item.username == _us && item.password == _pa).FirstOrDefault ()) != null;
+        }
     }
 }
