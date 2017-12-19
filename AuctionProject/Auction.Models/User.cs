@@ -3,13 +3,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Auction.Models {
-    public class User {
-
-        [Key]
+    public class User {        
+        [Required]
         public Guid IDuser { get; set; }
 
+        [Key]
         [Required]
-
         [StringLength (50)]
         public string username { get; set; }
 

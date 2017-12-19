@@ -16,7 +16,6 @@ namespace Auction.Service.Controllers {
 
     [Produces ("application/json")]
     //[Authorize]
-
     [Route ("api/user")]
     public class UserController : Controller {
         private readonly AuctionDBContext _context;
@@ -30,12 +29,6 @@ namespace Auction.Service.Controllers {
             this.basicfunction = new BasicFunciton (this._context);
             this.errorResquest = new ErrorResquest ();
         }
-
-        // [HttpGet]
-        // public IActionResult Get () {
-        //     IEnumerable<UserInfomation> list = userfunction.Get ();
-        //     return Ok (list);
-        // }
 
         [HttpGet ("{_us}")]
         public IActionResult Get (string _us) {

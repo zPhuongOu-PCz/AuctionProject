@@ -11,8 +11,8 @@ using System;
 namespace Auction.EF.Migrations
 {
     [DbContext(typeof(AuctionDBContext))]
-    [Migration("20171213100347_IntialDatabase_v1.0")]
-    partial class IntialDatabase_v10
+    [Migration("20171218060733_AuctionDatabase")]
+    partial class AuctionDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,12 +21,54 @@ namespace Auction.EF.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Auction.Models.User", b =>
+            modelBuilder.Entity("Auction.Models.Category", b =>
                 {
-                    b.Property<Guid>("IDuser")
+                    b.Property<Guid>("idcategory")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("idcategory");
+
+                    b.ToTable("PdbCategory");
+                });
+
+            modelBuilder.Entity("Auction.Models.Product", b =>
+                {
+                    b.Property<Guid>("idpro")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("bestitem");
+
+                    b.Property<bool>("hotitem");
+
+                    b.Property<Guid>("idcate");
+
+                    b.Property<byte[]>("image")
+                        .IsRequired();
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<bool>("newitem");
+
+                    b.HasKey("idpro");
+
+                    b.ToTable("PdbProduct");
+                });
+
+            modelBuilder.Entity("Auction.Models.User", b =>
+                {
+                    b.Property<string>("username")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50);
+
                     b.Property<DateTime>("CreatedDate");
+
+                    b.Property<Guid>("IDuser");
 
                     b.Property<string>("address")
                         .HasMaxLength(100);
@@ -52,11 +94,7 @@ namespace Auction.EF.Migrations
                     b.Property<string>("phone")
                         .HasMaxLength(15);
 
-                    b.Property<string>("username")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("IDuser");
+                    b.HasKey("username");
 
                     b.ToTable("PdbUser");
                 });

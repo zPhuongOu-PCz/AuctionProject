@@ -19,6 +19,10 @@ namespace Auction.Functionality.Function {
             this._context = context;
         }
 
+        /// <summary>
+        /// REST GET for User get all User ( but not include API - UserController)
+        /// </summary>
+        /// <returns></returns>
         public List<UserInfomation> Get () {
             try {
                 UserInfomation result = new UserInfomation ();
@@ -38,6 +42,11 @@ namespace Auction.Functionality.Function {
             }
         }
 
+        /// <summary>
+        /// REST GET for User get one User with Username
+        /// </summary>
+        /// <param name="_us">Username of User</param>
+        /// <returns></returns>
         public UserInfomation Get (string _us) {
             try {
                 User us = this._context.PdbUser.Where (item => item.username == _us).FirstOrDefault ();
@@ -66,6 +75,7 @@ namespace Auction.Functionality.Function {
                 item.address = user.address;
                 item.age = user.age;
                 item.countlogin = 0;
+                item.failedlogin = 0;
                 item.lastlogin = DateTime.Now;
                 item.displayname = user.displayname;
                 item.email = user.email;
