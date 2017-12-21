@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using Auction.EF.Database;
 using Auction.Functionality.Basic;
-using Auction.Functionality.Function;
+using Auction.Functionality.Module;
 using Auction.Model.API.Error;
 using Auction.Model.API.User;
 using Auction.Models;
@@ -19,13 +19,13 @@ namespace Auction.Service.Controllers {
     [Route ("api/user")]
     public class UserController : Controller {
         private readonly AuctionDBContext _context;
-        private readonly FunctionUser userfunction;
+        private readonly ModuleUser userfunction;
         private readonly ErrorResquest errorResquest;
         private readonly BasicFunciton basicfunction;
 
         public UserController (AuctionDBContext context) {
             this._context = context;
-            userfunction = new FunctionUser (this._context);
+            userfunction = new ModuleUser (this._context);
             this.basicfunction = new BasicFunciton (this._context);
             this.errorResquest = new ErrorResquest ();
         }
@@ -45,7 +45,7 @@ namespace Auction.Service.Controllers {
             if (item == null) {
                 return NotFound ();
             } else {
-                if (this.basicfunction.CheckLogin (item.username, item.password) == 1) {
+                if (this.userfunction.Login (item.username, item.password) == 1) {
                     return Ok ();
                 } else {
                     return Unauthorized ();

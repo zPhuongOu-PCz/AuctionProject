@@ -11,7 +11,7 @@ using System;
 namespace Auction.EF.Migrations
 {
     [DbContext(typeof(AuctionDBContext))]
-    [Migration("20171218060733_AuctionDatabase")]
+    [Migration("20171219025450_AuctionDatabase")]
     partial class AuctionDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

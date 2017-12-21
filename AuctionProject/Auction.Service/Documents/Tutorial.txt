@@ -1,0 +1,6 @@
+Version Tutorial v1.0 (with only User and Category)
+1. Clone Project from link https://github.com/zPhuongOu-PCz/AuctionProject.git
+2. Open file Auction.EF/Database/AuctionDBContext.cs and change connectionstring in there (with your computer).
+3. Open package console commands (Tool/) and input code "update-database"
+4. Open file Auction.Test/Function/Usertest.cs and runtest.
+5. Open file Auction.Test/Function/Categorytest.cs and runtest.

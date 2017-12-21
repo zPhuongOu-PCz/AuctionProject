@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.Model.API", "Auctio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.Functionality", "Auction.Functionality\Auction.Functionality.csproj", "{F4F2A9B5-E43F-4D0A-8AC6-47D2315EBDE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction.EF", "Auction.EF\Auction.EF.csproj", "{26615523-37CA-49DB-B762-178CAA0DDA82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.EF", "Auction.EF\Auction.EF.csproj", "{26615523-37CA-49DB-B762-178CAA0DDA82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction.Test", "Auction.Test\Auction.Test.csproj", "{59586A17-0425-46EE-884D-8B6AC1FCE0C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.Test", "Auction.Test\Auction.Test.csproj", "{59586A17-0425-46EE-884D-8B6AC1FCE0C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

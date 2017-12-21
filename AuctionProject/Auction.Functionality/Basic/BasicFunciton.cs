@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Auction.EF.Database;
+using Auction.Models;
 
-namespace Auction.Functionality.Basic {
-    public class BasicFunciton {
+namespace Auction.Functionality.Basic
+{
+    public class BasicFunciton
+    {
         private readonly AuctionDBContext _context;
+        private readonly Module.ModuleUser moduleuser;
+        private readonly Module.ModuleCategory modulecate;
 
-        public BasicFunciton (AuctionDBContext context) {
+        public BasicFunciton(AuctionDBContext context)
+        {
             this._context = context;
-        }
-
-        public int CheckLogin (string us, string pa) {
-            if (this._context.PdbUser.Where (item => item.username == us || item.password == pa) == null)
-                return 1;
-            return 0;
+            modulecate = new Module.ModuleCategory(this._context);
+            moduleuser = new Module.ModuleUser(this._context);
         }
     }
 }

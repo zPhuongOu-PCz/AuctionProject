@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using Auction.EF.Database;
-using Auction.Functionality.Function;
+using Auction.Functionality.Module;
 using Auction.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Auction.Test {
     [TestClass]
     public class Usertest {
-        public FunctionUser function;
-        public List<FunctionUser> list;
+        public ModuleUser function;
+        public List<ModuleUser> list;
 
         [TestInitialize]
         public void Setup () {
-            function = new FunctionUser (new AuctionDBContext (new Microsoft.EntityFrameworkCore.DbContextOptions<AuctionDBContext> ()));
+            function = new ModuleUser (new AuctionDBContext (new Microsoft.EntityFrameworkCore.DbContextOptions<AuctionDBContext> ()));
             list = null;
         }
 
