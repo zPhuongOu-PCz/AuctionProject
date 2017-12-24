@@ -1,0 +1,43 @@
+﻿Document about API Service project Auction.Service for CategoryAPI
+
+#Category:
+-------------------------------------------------------------------------------------------------------------------------------
+(GET)/api/Category : When you need all category
+*Request:
+<None>
+*Responses:
+•Status 200:
+{
+    [
+		{
+			"idcategory": "6823c1ae-2d83-4a31-ab21-9189e00b1414",
+			"name": "Đồng hồ"
+		},
+		{
+			"idcategory": "212be566-383a-4365-abf7-c1887e1df240",
+			"name": "Quần áo"
+		},
+		{
+			"idcategory": "031ef99a-d1e9-4a75-a591-c1e7b1794745",
+			"name": "Công nghệ"
+		}
+	]
+}
+-------------------------------------------------------------------------------------------------------------------------------
+(POST)/api/category : When you need to insert new category
+*Request:
+{
+    "name":"Công nghệ"
+}
+*Responses:
+•Status 200: You insert successful.
+•Status 404: Failed when insert (request wrong or sth wrong from server)
+-------------------------------------------------------------------------------------------------------------------------------
+{DELETE}/api/category : When you need to delete category
+*Request:
+{
+	"name":"Công nghệ"
+}
+*Responses:
+•Status 200: You delete successful.
+•Status 404: Failed when delete (request wrong or sth wrong from server)

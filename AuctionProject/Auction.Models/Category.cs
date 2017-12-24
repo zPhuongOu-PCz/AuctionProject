@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Auction.Models
 {
     public class Category
     {
-        [Key]        
-        public Guid idcategory { get; set; }
-
+        [Key]
+        public Guid? idcategory { get; set; }
+                
+        [MaxLength(50)]   
         [Required]
-        [MaxLength(50)]        
         public string name { get; set; }
     }
 }

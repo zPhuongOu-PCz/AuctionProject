@@ -22,7 +22,7 @@ namespace Auction.EF.Migrations
 
             modelBuilder.Entity("Auction.Models.Category", b =>
                 {
-                    b.Property<Guid>("idcategory")
+                    b.Property<Guid?>("idcategory")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("name")
@@ -65,8 +65,6 @@ namespace Auction.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(50);
 
-                    b.Property<DateTime>("CreatedDate");
-
                     b.Property<Guid>("IDuser");
 
                     b.Property<string>("address")
@@ -75,6 +73,8 @@ namespace Auction.EF.Migrations
                     b.Property<int?>("age");
 
                     b.Property<int?>("countlogin");
+
+                    b.Property<DateTime>("createddate");
 
                     b.Property<string>("displayname")
                         .HasMaxLength(50);
@@ -92,6 +92,8 @@ namespace Auction.EF.Migrations
 
                     b.Property<string>("phone")
                         .HasMaxLength(15);
+
+                    b.Property<bool>("status");
 
                     b.HasKey("username");
 

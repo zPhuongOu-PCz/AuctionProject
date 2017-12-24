@@ -53,7 +53,7 @@ namespace Auction.Test {
                 email = "phuongou@gmail.com",
                 password = "123",
                 username = "admin1",
-                phone = "0123456789",
+                phone = "0123456789",                
             }));
         }
 

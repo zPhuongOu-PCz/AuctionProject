@@ -2,7 +2,7 @@ Document about API Service project Auction.Service for UserAPI
 
 #User:
 -------------------------------------------------------------------------------------------------------------------------------
-/api/user/{username} : When you need information of a user
+(GET)/api/user/{username} : When you need information of a user
 *Request:
 <None>
 *Responses:
@@ -16,7 +16,7 @@ Document about API Service project Auction.Service for UserAPI
 }
 •Status 404: Returned if the property does not exist or the currently authenticated user does not have permission to view it.
 -------------------------------------------------------------------------------------------------------------------------------
-/api/user/login : When you need to check the log on the system
+(POST)/api/user/login : When you need to check the log on the system
 *Request:
 {
     "username": "admin",
@@ -27,7 +27,7 @@ Document about API Service project Auction.Service for UserAPI
 •Status 404: Returned if the property does not exist or the currently authenticated user does not have permission to view it.
 •Status 401: Returned if the caller is not authenticated.
 -------------------------------------------------------------------------------------------------------------------------------
-/api/user/register : When you need to check the registry to the system
+(POST)/api/user/register : When you need to check the registry to the system
 *Request:
 {
 	"username":"admin1",

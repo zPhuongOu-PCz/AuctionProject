@@ -21,12 +21,10 @@ namespace Auction.Service.Controllers {
         private readonly AuctionDBContext _context;
         private readonly ModuleUser userfunction;
         private readonly ErrorResquest errorResquest;
-        private readonly BasicFunciton basicfunction;
 
         public UserController (AuctionDBContext context) {
             this._context = context;
             userfunction = new ModuleUser (this._context);
-            this.basicfunction = new BasicFunciton (this._context);
             this.errorResquest = new ErrorResquest ();
         }
 
@@ -45,10 +43,11 @@ namespace Auction.Service.Controllers {
             if (item == null) {
                 return NotFound ();
             } else {
-                if (this.userfunction.Login (item.username, item.password) == 1) {
+                int code = this.userfunction.Login (item.username, item.password);
+                if (code == 200) {
                     return Ok ();
                 } else {
-                    return Unauthorized ();
+                    return NotFound ();
                 }
             }
         }
@@ -59,7 +58,7 @@ namespace Auction.Service.Controllers {
             if (item == null) {
                 return NotFound ();
             } else {
-                if (this.userfunction.Post (item) == 1) {
+                if (this.userfunction.Post (item) == 200) {
                     return Ok ();
                 } else {
                     return NotFound ();
