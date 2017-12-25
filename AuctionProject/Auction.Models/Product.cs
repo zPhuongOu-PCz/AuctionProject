@@ -11,7 +11,7 @@ namespace Auction.Models
         public Guid idpro { get; set; }
 
         [Required]
-        public Guid idcate { get; set; }
+        public string catename { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -33,6 +33,17 @@
 •Status 200: You insert successful.
 •Status 404: Failed when insert (request wrong or sth wrong from server)
 -------------------------------------------------------------------------------------------------------------------------------
+{PUT}/api/category : When you need to edit name of category
+*Request:
+{
+	"oldname":"Đồng hồ",
+	"newname":"New Đồng hồ"
+}
+*Responses:
+•Status 200: You delete successful.
+•Status 404: Failed when edit (request wrong or sth wrong from server)
+*Note:oldname != newname & newname != name existing in database => return status 404
+-------------------------------------------------------------------------------------------------------------------------------
 {DELETE}/api/category : When you need to delete category
 *Request:
 {

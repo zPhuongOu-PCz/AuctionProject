@@ -7,10 +7,10 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Auction.EF.Database;
+using Auction.Model.API.Category;
 using Auction.Model.API.User;
 using Auction.Models;
 using Microsoft.AspNetCore.Mvc;
-using Auction.Model.API.Category;
 
 namespace Auction.Functionality.Module
 {
@@ -74,6 +74,14 @@ namespace Auction.Functionality.Module
         {
             try
             {
+                List<Category> list = Get();
+                foreach (var value in list)
+                {
+                    if (item.name == value.name)
+                    {
+                        return false;
+                    }
+                }
                 Category cate = new Category
                 {
                     idcategory = Guid.NewGuid(),
@@ -90,29 +98,34 @@ namespace Auction.Functionality.Module
             }
         }
 
-        ///// <summary>
-        ///// Edit infomation Category
-        ///// </summary>
-        ///// <param name="cate">infomation cate</param>
-        ///// <returns>return false is fail to edit</returns>
-        //public bool Put(CategoryEdit item, string _name)
-        //{
-        //    try
-        //    {
-        //        Category ca = this._context.PdbCategory.SingleOrDefault(item1 => item1.name == _name);
-        //        ca.name = item.name;
-        //        ca.displayhome = item.displayhome;
-        //        ca.numberorder = item.numberorder;
-        //        ca.status = item.status;
-        //        this._context.PdbCategory.Attach(ca);
-        //        this._context.Entry(ca).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-        //        return this._context.SaveChanges() == 1;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
+        /// <summary>
+        /// Edit infomation Category
+        /// </summary>
+        /// <param name="cate">infomation cate</param>
+        /// <returns>return false is fail to edit</returns>
+        public bool Put(CategoryEdit item)
+        {
+            List<Category> list = Get();
+            foreach (var value in list)
+            {
+                if (value.name == item.newname)
+                {
+                    return false;
+                }
+            }
+            try
+            {
+                Category ca = this._context.PdbCategory.SingleOrDefault(item1 => item1.name == item.oldname);
+                ca.name = item.newname;
+                this._context.PdbCategory.Attach(ca);
+                this._context.Entry(ca).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                return this._context.SaveChanges() == 1;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// Delete Category
@@ -123,7 +136,7 @@ namespace Auction.Functionality.Module
         {
             try
             {
-                Category cate = this._context.PdbCategory.SingleOrDefault(item1 => item1.name == item.name);
+                Category cate = this._context.PdbCategory.Single(item1 => item1.name == item.name);
                 this._context.PdbCategory.Remove(cate);
                 this._context.Entry(cate).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                 return this._context.SaveChanges() == 1;
