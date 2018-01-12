@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Auction.Models
 {
@@ -11,6 +9,7 @@ namespace Auction.Models
         public Guid idpro { get; set; }
 
         [Required]
+        [StringLength(50)]
         public string catename { get; set; }
 
         [Required]
@@ -18,15 +17,29 @@ namespace Auction.Models
         public string name { get; set; }
 
         [Required]
-        public byte[] image { get; set; }
+        [StringLength(50)]
+        public string brand { get; set; }
 
         [Required]
-        public bool hotitem { get; set; }
+        [StringLength(50)]
+        public string warrantyperiod { get; set; }
 
         [Required]
-        public bool newitem { get; set; }
+        public int auctiontime { get; set; }
 
-        [Required]
-        public bool bestitem { get; set; }
+        [StringLength(30)]
+        public string bigimage { get; set; }
+
+        [StringLength(30)]
+        public string smallimage1 { get; set; }
+
+        [StringLength(30)]
+        public string smallimage2 { get; set; }
+
+        [StringLength(30)]
+        public string smallimage3 { get; set; }
+
+        [StringLength(100)]
+        public string note { get; set; }
     }
 }

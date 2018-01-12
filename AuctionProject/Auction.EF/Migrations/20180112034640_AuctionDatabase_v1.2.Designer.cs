@@ -11,9 +11,10 @@ using System;
 namespace Auction.EF.Migrations
 {
     [DbContext(typeof(AuctionDBContext))]
-    partial class AuctionDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180112034640_AuctionDatabase_v1.2")]
+    partial class AuctionDatabase_v12
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

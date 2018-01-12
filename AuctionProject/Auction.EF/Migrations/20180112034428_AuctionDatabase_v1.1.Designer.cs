@@ -11,9 +11,10 @@ using System;
 namespace Auction.EF.Migrations
 {
     [DbContext(typeof(AuctionDBContext))]
-    partial class AuctionDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180112034428_AuctionDatabase_v1.1")]
+    partial class AuctionDatabase_v11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,34 +40,29 @@ namespace Auction.EF.Migrations
                     b.Property<Guid>("idpro")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Note")
+                        .HasMaxLength(100);
+
                     b.Property<int>("auctiontime");
 
-                    b.Property<string>("bigimage")
-                        .HasMaxLength(30);
+                    b.Property<string>("bigimage");
 
                     b.Property<string>("brand")
                         .IsRequired()
                         .HasMaxLength(50);
 
                     b.Property<string>("catename")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                        .IsRequired();
 
                     b.Property<string>("name")
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("note")
-                        .HasMaxLength(100);
+                    b.Property<string>("smallimage1");
 
-                    b.Property<string>("smallimage1")
-                        .HasMaxLength(30);
+                    b.Property<string>("smallimage2");
 
-                    b.Property<string>("smallimage2")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("smallimage3")
-                        .HasMaxLength(30);
+                    b.Property<string>("smallimage3");
 
                     b.Property<string>("warrantyperiod")
                         .IsRequired()
