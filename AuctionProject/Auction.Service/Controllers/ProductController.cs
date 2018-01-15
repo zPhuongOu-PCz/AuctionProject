@@ -38,12 +38,25 @@ namespace Auction.Service.Controllers
 
         }
 
-        // GET: api/Product/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{_cate}")]
+        public IActionResult Get(int _cate)
         {
-            return "value";
+            try
+            {
+                return Ok(modulep.Get(modulep.GetNamewithId(_cate)));
+            }
+            catch 
+            {
+                return NotFound();
+            }
         }
+
+        // GET: api/Product/5
+        //[HttpGet("{id}", Name = "Get")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST: api/Product
         [HttpPost]

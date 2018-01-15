@@ -29,18 +29,23 @@ namespace Auction.Functionality.Module
             }
         }
 
+        public List<Product> Get(string _cate)
+        {
+            try
+            {
+                return this._context.PdbProduct.Where(item => item.catename == _cate).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public bool Post(ProductNew item)
         {
             try
             {
                 List<Product> list = Get();
-                //foreach (var value in list)
-                //{
-                //    if (item.name == value.name)
-                //    {
-                //        return false;
-                //    }
-                //}
 
                 Product cate = new Product
                 {
@@ -65,6 +70,11 @@ namespace Auction.Functionality.Module
             {
                 return false;
             }
+        }
+
+        public string GetNamewithId(int _id)
+        {
+            return this._context.PdbCategory.Where(item => item.Id == _id).FirstOrDefault().name;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 #Product:
 -------------------------------------------------------------------------------------------------------------------------------
-(GET)/api/user : When you need all Product
+(GET)/api/product : When you need all Product
 *Request:
 <None>
 *Responses:
@@ -19,5 +19,53 @@
 	"smallimage2":""
 	"smallimage3":"",
 	"note":"Đồng hồ xịn ko bị rỉ sét"
+}
+•Status 404: Returned if the property does not exist or the currently authenticated user does not have permission to view it.
+-------------------------------------------------------------------------------------------------------------------------------
+(GET)/api/product/{id} : When you need product with one category
+*Request:
+<None>
+*Responses :
+•Status 200:
+{
+	{
+        "idpro": "1ecc4b51-10ff-48b0-9b82-34fdc7c82a44",
+        "catename": "Đồng hồ",
+        "name": "Đồng hồ Apple Watch",
+        "brand": "Apple",
+        "warrantyperiod": "6",
+        "auctiontime": 12,
+        "bigimage": "img-3.jpg",
+        "smallimage1": "",
+        "smallimage2": "",
+        "smallimage3": "",
+        "note": "Đồng hồ xịn ko bị rỉ sét"
+    },
+    {
+        "idpro": "dfcaa709-7df1-4a5f-aaac-992f7f0c4a01",
+        "catename": "Đồng hồ",
+        "name": "Đồng hồ Casio",
+        "brand": "Casio",
+        "warrantyperiod": "6",
+        "auctiontime": 12,
+        "bigimage": "img-1.jpg",
+        "smallimage1": "",
+        "smallimage2": "",
+        "smallimage3": "",
+        "note": "Đồng hồ xịn ko bị rỉ sét"
+    },
+    {
+        "idpro": "7a6752d9-8bc9-4a10-aa35-a62dcc34a4ee",
+        "catename": "Đồng hồ",
+        "name": "Đồng hồ DW",
+        "brand": "DW",
+        "warrantyperiod": "6",
+        "auctiontime": 12,
+        "bigimage": "img-2.jpg",
+        "smallimage1": "",
+        "smallimage2": "",
+        "smallimage3": "",
+        "note": "Đồng hồ xịn ko bị rỉ sét"
+    }
 }
 •Status 404: Returned if the property does not exist or the currently authenticated user does not have permission to view it.

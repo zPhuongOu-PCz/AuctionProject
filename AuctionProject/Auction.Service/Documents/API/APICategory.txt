@@ -11,14 +11,12 @@
     [
 		{
 			"idcategory": "6823c1ae-2d83-4a31-ab21-9189e00b1414",
+			"id":5
 			"name": "Đồng hồ"
 		},
 		{
-			"idcategory": "212be566-383a-4365-abf7-c1887e1df240",
-			"name": "Quần áo"
-		},
-		{
 			"idcategory": "031ef99a-d1e9-4a75-a591-c1e7b1794745",
+			"id":4
 			"name": "Công nghệ"
 		}
 	]

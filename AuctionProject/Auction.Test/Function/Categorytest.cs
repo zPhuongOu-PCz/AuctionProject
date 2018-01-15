@@ -37,7 +37,7 @@ namespace Auction.Test
         public void CateInsert()
         {
             Assert.AreNotEqual(false, function.Post(new CategoryNew
-            {
+            {                
                 name = "Công nghệ"
             }));
         }
@@ -47,7 +47,7 @@ namespace Auction.Test
         {
             Assert.AreNotEqual(false, function.Post(new CategoryNew
             {
-                name = "Quần áo"
+                name = "Đồng hồ"
             }));
         }
         

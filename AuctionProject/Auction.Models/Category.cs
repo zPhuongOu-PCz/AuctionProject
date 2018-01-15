@@ -8,7 +8,10 @@ namespace Auction.Models
     {
         [Key]
         public Guid? idcategory { get; set; }
-                
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         [MaxLength(50)]   
         [Required]
         public string name { get; set; }
