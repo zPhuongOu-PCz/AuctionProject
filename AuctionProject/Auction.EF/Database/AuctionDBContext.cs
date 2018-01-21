@@ -26,7 +26,7 @@ namespace Auction.EF.Database
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             //This is a connectionString
-            builder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=AuctionProject;Integrated Security=True");
+            builder.UseSqlServer(@"Data Source=.\sqlexpress01;Initial Catalog=AuctionProject;Integrated Security=True");
 
             base.OnConfiguring(builder);
         }
