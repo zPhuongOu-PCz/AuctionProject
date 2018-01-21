@@ -15,7 +15,7 @@ namespace Auction.Service.Controllers
 {
     [Produces("application/json")]
     [Route("api/Category")]
-    [EnableCors("MyPolicy")]
+    [EnableCors("AllowSpecificOrigin")]
     public class CategoryController : Controller
     {
         private readonly AuctionDBContext _context;
@@ -31,14 +31,14 @@ namespace Auction.Service.Controllers
 
         // GET: api/Category
         [HttpGet]
-        [EnableCors("MyPolicy")]
+        [EnableCors("AllowSpecificOrigin")]
         public IActionResult Get()
         {
             var list = catefunction.Get().ToArray();
             return Ok(list);
         }
 
-        [EnableCors("MyPolicy")]
+        [EnableCors("AllowSpecificOrigin")]
         [HttpPut]
         public IActionResult Put([FromBody] CategoryEdit item)
         {
@@ -64,7 +64,7 @@ namespace Auction.Service.Controllers
         }
 
         // POST: api/Category
-        [EnableCors("MyPolicy")]
+        [EnableCors("AllowSpecificOrigin")]
         [HttpPost]
         public IActionResult Post([FromBody] CategoryNew item)
         {
@@ -93,7 +93,7 @@ namespace Auction.Service.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [EnableCors("MyPolicy")]
+        [EnableCors("AllowSpecificOrigin")]
         [HttpDelete]
         public IActionResult Delete([FromBody] CategoryNew item)
         {
